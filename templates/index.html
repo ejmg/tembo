@@ -1,0 +1,70 @@
+{% import "macros/head.html" as head -%}
+{% import "macros/social.html" as social -%}
+
+
+<!DOCTYPE html>
+<html lang="{{ config.default_language }}">
+    {%- block head -%}
+        <head>
+            {%- block meta -%}
+                {{ head::general_meta() }}
+            {%- endblock meta -%}
+
+            {%- block title -%}
+                <title>{{ config.title }}</title>
+            {%- endblock title -%}
+
+            {%- block og_preview -%}
+                {{ social::og_preview() }}
+            {%- endblock og_preview -%}
+
+            {%- block favicon -%}
+                {{ head::favicon() }}
+            {%- endblock favicon -%}
+
+            {%- block rss -%}
+                {{ head::rss() }}
+            {%- endblock rss %}
+
+            {%- block css -%}
+                {{ head::styling() }}
+            {%- endblock css -%}
+        </head>
+    {%- endblock head -%}
+
+    <body>
+
+        {%- block header -%}
+            <header>
+                <h1 id="page-title"><a href="{{ config.base_url }}">
+                    {%- if config.extra.header_title -%}
+                        {{ config.extra.header_title }}
+                    {%- else -%}
+                        {{ config.title }}
+                    {%- endif -%}
+                </a></h1>
+            </header>
+        {%- endblock header -%}
+
+        {%- block main -%}
+            <div id="content">
+                <ul class="posts-listing">
+                    {%- for page in paginator.pages -%}
+                        <div id="posts">
+                            <div id="date" class="date-title">
+                                <time>
+                                    {%- if page.date -%}
+                                        {{ page.date | date(format="%Y.%m.%d") }}
+                                    {%- endif -%}
+                                </time>
+                            </div>
+                            <div class="date-title post">
+                                <a href="{{ page.permalink }}">{{ page.title }}</a>
+                            </div>
+                        </div>
+                    {%- endfor -%}
+                </ul>
+            </div>
+        {%- endblock main -%}
+    </body>
+</html>

@@ -1,0 +1,29 @@
+name = "tembo"
+description = "an ultra-minimalist theme based on Benny Mei's Elephants for Hugo"
+license = "MIT"
+homepage = "https://github.com/ejmg/zerm"
+# The minimum version of Zola required
+min_version = "0.8.0"
+# An optional live demo URL
+# demo = "https://zerm.ejmg.now.sh/"
+
+# Any variable there can be overriden in the end user `config.toml`
+# You don't need to prefix variables by the theme name but as this will
+# be merged with user data, some kind of prefix or nesting is preferable
+# Use snake_casing to be consistent with the rest of Zola
+[extra]
+
+# The theme author info: you!
+[author]
+name = "elias julian marko garcia"
+homepage = "https://github.com/ejmg/tembo"
+
+# If this is porting a theme from another static site engine, provide
+# the info of the original author here
+[original]
+author =  "Benny Mei"
+homepage = "https://www.bennymei.com/"
+repo = "https://github.com/meibenny/elephants"
+# Note to anyone reading this: Benny has a repo also up on his GitLab, but appears to
+# push to both of them for updates. Just in case, though, here's the other one:
+repo.gitlab = "https://gitlab.com/meibenny/elephants"
